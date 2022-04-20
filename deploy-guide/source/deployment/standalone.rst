@@ -328,14 +328,14 @@ Deploying a Standalone OpenStack node
 
     sudo openstack tripleo deploy \
       --templates \
+      --standalone-role Standalone \
       --local-ip=$IP/$NETMASK \
       --control-virtual-ip $VIP \
       -e /usr/share/openstack-tripleo-heat-templates/environments/standalone/standalone-tripleo.yaml \
       -r /usr/share/openstack-tripleo-heat-templates/roles/Standalone.yaml \
       -e $HOME/containers-prepare-parameters.yaml \
       -e $HOME/standalone_parameters.yaml \
-      --output-dir $HOME \
-      --standalone
+      --output-dir $HOME
 
    .. admonition:: Ceph
       :class: ceph
@@ -346,6 +346,7 @@ Deploying a Standalone OpenStack node
 
          sudo openstack tripleo deploy \
            --templates \
+           --standalone-role Standalone
            --local-ip=$IP/$NETMASK \
            --control-virtual-ip $VIP \
            -e /usr/share/openstack-tripleo-heat-templates/environments/standalone/standalone-tripleo.yaml \
@@ -354,8 +355,7 @@ Deploying a Standalone OpenStack node
            -e $HOME/containers-prepare-parameters.yaml \
            -e $HOME/standalone_parameters.yaml \
            -e $HOME/deployed_ceph.yaml \
-           --output-dir $HOME \
-           --standalone
+           --output-dir $HOME
 
 
 #. Check the deployed OpenStack Services
